@@ -20,3 +20,12 @@ html {
 body {
   margin-bottom: 60px;
 }
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 200px 2fr;
+    row-gap: 5px;
+}
+
+.container {
+    margin-bottom: 40px;
+}
