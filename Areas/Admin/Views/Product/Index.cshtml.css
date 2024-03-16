@@ -1,0 +1,5 @@
+﻿.max-lines {
+    height: 4.5rem; /* adjust to taste */
+    text-overflow:ellipsis;
+    overflow:clip;
+}
