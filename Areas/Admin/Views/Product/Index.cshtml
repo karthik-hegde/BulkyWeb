@@ -9,61 +9,26 @@
             </h2>
         </div>
         <div class="col-6 text-end">
-            <a asp-controller="Product" asp-action="Create" class="btn btn-primary">
+            <a asp-controller="Product" asp-action="Upsert" class="btn btn-primary">
                 <i class="bi bi-plus-circle"></i>Add Product
             </a>
         </div>
     </div>
 </div>
 
-<table class="table">
-    <thead class="thead-light">
+<table id="tblData" class="table table-bordered table-striped">
+    <thead>
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">Title</th>
-            <th scope="col" class="col-md-2">Description</th>
-            <th scope="col">ISBN</th>
-            <th scope="col">Author</th>
-            <th scope="col" class="col-xs-2">ListPrice</th>
-            <th scope="col" class="col-xs-2">Price</th>
-            <th scope="col" class="col-sm-1">Price 50</th>
-            <th scope="col" class="col-sm-1">Price 100</th>
-            <th scope="col" class="col-md-3">Actions</th>
+            <th>Title</th>
+            <th>ISBN</th>
+            <th>Author</th>
+            <th>List Price</th>
+            <th>Category</th>
         </tr>
     </thead>
-    <tbody>
-        @{int i = 1;}
-        @foreach (var product in Model.OrderBy(x => x.Title))
-        {
-            <tr>
-                <th scope="row">@i</th>
-                <td>@product.Title</td>
-                <td><div class="max-lines" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="@product.Description">@product.Description</div></td>
-                
-                <td>@product.ISBN</td>
-                <td>@product.Author</td>
-                <td>@product.ListPrice</td>
-                <td>@product.Price</td>
-                <td>@product.Price50</td>
-                <td>@product.Price100</td>
-                <td>
-                    <div>
-                        <div class="w-45 btn-group" role="group">
-                            <a asp-controller="Product" asp-action="Edit" asp-route-id="@product.Id" class="btn btn-primary mx-2">
-                                <i class="bi bi-pencil-square"></i>Edit
-                            </a>
-                        </div>
-                        <div class="w-45 btn-group" role="group">
-                            <a asp-controller="Product" asp-action="Delete" asp-route-id="@product.Id" class="btn btn-danger mx-2">
-                                <i class="bi bi-pencil-square"></i>Delete
-                            </a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            i++;
-        }
-
-
-    </tbody>
 </table>
+
+
+        @section Scripts{
+            <script src="~/js/product.js"></script>
+        }
